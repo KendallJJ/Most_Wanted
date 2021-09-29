@@ -17,7 +17,7 @@ function app(people){
     case 'no':
       // TODO: search by traits
       function getPersonByTrait(height, weight, eyeColor){
-        var people = dateSearch;
+        let people = Object;
         if(height == null){
           people.trait(function(person){
             return person.height == height;
@@ -29,7 +29,7 @@ function app(people){
           });
           if(eyeColor == null){
             people.trait(function(person){
-              return person.eyeColor == eyeColor
+              return person.eyeColor == eyeColor;
             });
         }
       }
@@ -61,6 +61,10 @@ function mainMenu(person, people){
   switch(displayOption){
     case "info":
     // TODO: get person's info
+    function getInfo(firstName, lastName){
+      for(let i =0; i <Object.lenght; i++);
+      if (firstName == Object[i].firstName + lastName)
+    }
     break;
     case "family":
     // TODO: get person's family
