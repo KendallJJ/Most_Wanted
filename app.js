@@ -16,11 +16,31 @@ function app(people){
       break;
     case 'no':
       // TODO: search by traits
+      function getPersonByTrait(height, weight, eyeColor){
+        var people = dateSearch;
+        if(height == null){
+          people.trait(function(person){
+            return person.height == height;
+        });
+        }
+        if(weight == null){
+          people.trait(function(person){
+            return person.weight == weight;
+          });
+          if(eyeColor == null){
+            people.trait(function(person){
+              return person.eyeColor == eyeColor
+            });
+        }
+      }
       break;
-      default:
-    app(people); // restart app
-      break;
-  }
+      default;
+
+        app(people); // restart app
+      }
+        break;
+        
+      
   
   // Call the mainMenu function ONLY after you find the SINGLE person you are looking for
   mainMenu(searchResults, people);
