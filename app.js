@@ -70,6 +70,10 @@ function mainMenu(person, people){
     break;
     case "family":
     // TODO: get person's family
+    let family = ["Parents", "Spouse", "Sibilings"];
+    family.forEach(function (eachFamilyMember, index){
+      console.log(index + 1 + ". " + eachFamilyMember); // 1. Parents, 2. Spouse, 3. Sibilings
+    });
     break;
     case "descendants":
     // TODO: get person's descendants
@@ -114,6 +118,14 @@ function searchByEyeColor(people){
 }
 
 //TODO: add other trait filter functions here.
+let searchType = promptFor("Do you know the color of the eyesof the person you are looking for? Enter 'yes' or 'no'", yesNo). toLocaleLowerCase();
+switch(searchType){
+  case "yes":
+    searchResults = searchByEyeColor(people);
+    break;
+    case "no":
+}
+
 
 
 
