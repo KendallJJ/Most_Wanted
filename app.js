@@ -14,10 +14,10 @@ function app(people){
     case 'yes':
       searchResults = searchByName(people);
       break;
-    case 'no':
+    case 'no':}
       // TODO: search by traits
       function getPersonByTrait(height, weight, eyeColor){
-        let people = Object;
+        let people = PersonByTrait;
         if(height == null){
           people.trait(function(person){
             return person.height == height;
@@ -33,12 +33,12 @@ function app(people){
             });
         }
       }
-      break;
-      default;
+      //break;
+     // default;
 
         app(people); // restart app
       }
-        break;
+      //  break;
         
       
   
@@ -62,8 +62,10 @@ function mainMenu(person, people){
     case "info":
     // TODO: get person's info
     function getInfo(firstName, lastName){
-      for(let i =0; i <Object.lenght; i++);
-      if (firstName == Object[i].firstName + lastName)
+      for(let i = 0; i <Info.lenght; i++);
+      if (firstName == Info[i].firstName + lastName == Info[i].lastName);{
+        return(Info[i]);
+      }
     }
     break;
     case "family":
