@@ -58,33 +58,42 @@ function mainMenu(person, people){
 
   let displayOption = promptFor("Found " + person.firstName + " " + person.lastName + " . Do you want to know their 'info', 'family', or 'descendants'? Type the option you want or 'restart' or 'quit'", autoValid);
 
-  switch(displayOption){
-    case "info":
-    // TODO: get person's info
-    function getInfo(firstName, lastName){
-      for(let i = 0; i <Info.lenght; i++);
-      if (firstName == Info[i].firstName + lastName == Info[i].lastName);{
-        return(Info[i]);
-      }
+  function getInfo(firstName, lastName){
+    for(let i = 0; i <Info.lenght; i++);
+    if (firstName == Info[i].firstName + lastName == Info[i].lastName);{
+      return(Info[i]);
     }
-    break;
-    case "family":
-    // TODO: get person's family
+  }
+
+  function getPersonsFamily(){
     let family = ["Parents", "Spouse", "Sibilings"];
     family.forEach(function (eachFamilyMember, index){
       console.log(index + 1 + ". " + eachFamilyMember); // 1. Parents, 2. Spouse, 3. Sibilings
     });
-    break;
+  }
+
+  switch(displayOption){
+    case "info":
+      getInfo();
+      break;
+
+    case "family":
+      getPersonsFamily()
+      break;
+
     case "descendants":
-    // TODO: get person's descendants
-    break;
+      // TODO: get person's descendants
+      break;
+
     case "restart":
-    app(people); // restart
-    break;
+      app(people); // restart
+      break;
+
     case "quit":
-    return; // stop execution
+      return; // stop execution
+
     default:
-    return mainMenu(person, people); // ask again
+      return mainMenu(person, people); // ask again
   }
 }
 
@@ -114,11 +123,12 @@ function searchByName(people){
 
 //unfinished function to search through an array of people to find matching eye colors. Use searchByName as reference.
 function searchByEyeColor(people){
+  let i = 0; i < 10; i++
 
 }
 
 //TODO: add other trait filter functions here.
-let searchType = promptFor("Do you know the color of the eyesof the person you are looking for? Enter 'yes' or 'no'", yesNo). toLocaleLowerCase();
+let searchType = promptFor("Do you know the color of the eyes of the person you are looking for? Enter 'yes' or 'no'", yesNo). toLocaleLowerCase();
 switch(searchType){
   case "yes":
     searchResults = searchByEyeColor(people);
