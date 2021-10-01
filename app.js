@@ -109,6 +109,9 @@ function searchByName(people){
     }
   })
   // TODO: find the person single person object using the name they entered.
+  function searchByName(people){
+    let 
+  }
   return foundPerson;
 }
 
@@ -118,7 +121,7 @@ function searchByEyeColor(people){
 }
 
 //TODO: add other trait filter functions here.
-let searchType = promptFor("Do you know the color of the eyesof the person you are looking for? Enter 'yes' or 'no'", yesNo). toLocaleLowerCase();
+let searchType = promptFor("Do you know the color of the eyes of the person you are looking for? Enter 'yes' or 'no'", yesNo). toLocaleLowerCase();
 switch(searchType){
   case "yes":
     searchResults = searchByEyeColor(people);
