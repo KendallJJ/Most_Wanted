@@ -58,33 +58,42 @@ function mainMenu(person, people){
 
   let displayOption = promptFor("Found " + person.firstName + " " + person.lastName + " . Do you want to know their 'info', 'family', or 'descendants'? Type the option you want or 'restart' or 'quit'", autoValid);
 
-  switch(displayOption){
-    case "info":
-    // TODO: get person's info
-    function getInfo(firstName, lastName){
-      for(let i = 0; i <Info.lenght; i++);
-      if (firstName == Info[i].firstName + lastName == Info[i].lastName);{
-        return(Info[i]);
-      }
+  function getInfo(firstName, lastName){
+    for(let i = 0; i <Info.lenght; i++);
+    if (firstName == Info[i].firstName + lastName == Info[i].lastName);{
+      return(Info[i]);
     }
-    break;
-    case "family":
-    // TODO: get person's family
+  }
+
+  function getPersonsFamily(){
     let family = ["Parents", "Spouse", "Sibilings"];
     family.forEach(function (eachFamilyMember, index){
       console.log(index + 1 + ". " + eachFamilyMember); // 1. Parents, 2. Spouse, 3. Sibilings
     });
-    break;
+  }
+
+  switch(displayOption){
+    case "info":
+      getInfo();
+      break;
+
+    case "family":
+      getPersonsFamily()
+      break;
+
     case "descendants":
-    // TODO: get person's descendants
-    break;
+      // TODO: get person's descendants
+      break;
+
     case "restart":
-    app(people); // restart
-    break;
+      app(people); // restart
+      break;
+
     case "quit":
-    return; // stop execution
+      return; // stop execution
+
     default:
-    return mainMenu(person, people); // ask again
+      return mainMenu(person, people); // ask again
   }
 }
 
@@ -110,24 +119,66 @@ function searchByName(people){
   })
   // TODO: find the person single person object using the name they entered.
   function searchByName(people){
-    let 
+    let firstName = promptFor("What is the person's first name?", firstNameValidation);
+    let lastName = promptFor("What is person's last name?" , lastNameValidation);
+
+    let foundPerson = people.filter(function(potentialMatch){
+      if(potentialMatch.firstName == firstName && potentialMatch.lastName == lastName){
+        return true;
+      }
+      else{
+        return false;
+      }
+    })
+    foundPerson = foundPerson[0];
+
+    return foundPerson;
   }
-  return foundPerson;
-}
 
+  
+  
 //unfinished function to search through an array of people to find matching eye colors. Use searchByName as reference.
-function searchByEyeColor(people){
 
+function searchByEyeColor(people){
+  let searchType = promptFor ("What is the person eye color?", eyeColorValidation);
+  let foundEyeColor = people.filter(function(potentialMatch){
+    if(potentialMatch.eyeColor == eyeColor){
+      return true;
+    }
+    else{
+      return false;
+    }
+  })
+  return foundEyeColor;
 }
+
+
+
+
+
 
 //TODO: add other trait filter functions here.
-let searchType = promptFor("Do you know the color of the eyes of the person you are looking for? Enter 'yes' or 'no'", yesNo). toLocaleLowerCase();
-switch(searchType){
-  case "yes":
-    searchResults = searchByEyeColor(people);
-    break;
-    case "no":
+
+function getPersonByTrait(gender, occupation, id){
+  let people = getTraitBy;
+  if(gender == null){
+    people.trait(function(person){
+      return person.gender == gender
+  });
 }
+if(occupation == null){
+  people.trait(function(person){
+    return person.occupation == occupation
+  });
+}
+if(id == null){
+  people.trait(function(person){
+    return person.id == id;
+  });
+  
+}
+
+
 
 
 
@@ -151,7 +202,15 @@ function displayPerson(person){
   // height, weight, age, name, occupation, eye color.
   let personInfo = "First Name: " + person.firstName + "\n";
   personInfo += "Last Name: " + person.lastName + "\n";
-  // TODO: finish getting the rest of the information to display.
+
+  let personInfo = person.filter(function(potentialMatch){
+    if(potentialMatch.firstName == firstName && potentialMatch.firstName == lastName){
+      return true;
+    }
+    {
+      return false;
+    }
+  })
   alert(personInfo);
 }
 
